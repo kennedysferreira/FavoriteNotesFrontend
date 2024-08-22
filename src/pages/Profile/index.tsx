@@ -34,8 +34,10 @@ export function Profile() {
       old_password: oldPassword,
     };
 
-    await updateProfile({ user: updatedUser, avatarFile });
-    window.location.reload();
+    const userUpdated = Object.assign(user, updatedUser)
+
+    await updateProfile({ user: userUpdated, avatarFile });
+    
   }
   function handleAvatar(e: any) {
     const file = e.target.files[0];
